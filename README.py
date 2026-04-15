@@ -14,6 +14,8 @@
 ├── practice02/             # 第二个教学实践  
 │   ├── chat_interface.py   # 终端聊天界面（支持流式输出和历史记录）
 │   └── tool_calling.py     # 工具调用系统（文件操作功能）
+├── practice03/             # 第三个教学实践
+│   └── chat_compression.py # 聊天记录压缩系统
 ├── test.py                 # 基础测试文件
 ├── .env                    # 环境配置文件
 ├── .env.example            # 环境配置示例
@@ -105,6 +107,32 @@
 
 ---
 
+实践 3: 聊天记录压缩系统 (practice03/chat_compression.py)
+--------------------------------------------------------
+功能用途:
+    - 实现聊天记录自动压缩功能
+    - 当聊天历史超过5轮或上下文长度超过3k时自动触发压缩
+    - 对前70%的聊天内容进行压缩，保留最后30%的内容
+    - 支持流式输出和正常的聊天交互
+
+实现的技术点:
+    - 聊天上下文长度计算
+    - 自动压缩触发机制
+    - 非流式响应处理（用于生成摘要）
+    - 聊天历史管理和重组
+    - 基于比例的内容分割
+
+教学目标:
+    - 学习如何管理和优化长对话上下文
+    - 理解聊天记录压缩的重要性
+    - 掌握不同响应模式的处理方法
+    - 学习如何设计智能的上下文管理策略
+
+运行命令:
+    python practice03/chat_compression.py
+
+---
+
 基础文件
 ========
 
@@ -147,6 +175,7 @@
 -------------------
 项目依赖:
     - python-dotenv：用于加载 .env 配置文件
+    - requests：用于网络请求
 
 安装依赖:
     pip install -r requirements.txt
@@ -162,15 +191,16 @@
    - 实践 1：python practice01/llm_client.py
    - 实践 2（聊天界面）：python practice02/chat_interface.py
    - 实践 2（工具调用）：python practice02/tool_calling.py
+   - 实践 3（聊天压缩）：python practice03/chat_compression.py
    - 基础测试：python test.py
 
 ---
 
 未来规划
 ========
-- practice03/：实现更复杂的功能，如多轮对话管理
 - practice04/：添加错误处理和重试机制
 - practice05/：实现文件上传和多模态交互
+- practice06/：开发更复杂的对话管理系统
 
 每个实践目录都将包含完整的代码和教学说明，逐步提升难度和功能复杂度。
 """
